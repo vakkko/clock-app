@@ -5,10 +5,16 @@ interface TimeResponse {
   time: string;
   timeZone: string;
   hour: string;
+  day: string;
+  date: string;
 }
 
-function Time() {
-  const [currentTime, setCurrentTime] = useState<TimeResponse | null>(null);
+interface TimeProps {
+  currentTime: TimeResponse | null;
+  setCurrentTime: React.Dispatch<React.SetStateAction<TimeResponse | null>>;
+}
+
+function Time({ currentTime, setCurrentTime }: TimeProps) {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [greeting, setGreeting] = useState<{
@@ -68,7 +74,7 @@ function Time() {
     const interval = setInterval(fetchTime, 60000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [setCurrentTime]);
 
   if (loading) {
     return <div>Loading...</div>;
