@@ -1,0 +1,38 @@
+.btn-more > button,
+.btn-less > button {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.8rem;
+  letter-spacing: 5px;
+  border-radius: 35px;
+  font-family: "Inter", serif;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 0.8rem 1rem 2.1rem;
+  cursor: pointer;
+}
+
+.arrow {
+  background-color: black;
+  padding: 1.2rem 1rem;
+  border-radius: 50%;
+  transition: transform 0.2s linear;
+}
+
+.btn-more,
+.btn-less {
+  grid-row-start: 2;
+  align-self: flex-end;
+  justify-self: flex-end;
+}
+
+.btn-less .arrow {
+  transform: rotate(180deg);
+}
+
+body.click-more .btn-less {
+  grid-row-start: 1;
+}

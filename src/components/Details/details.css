@@ -1,0 +1,4 @@
+.details-container {
+  grid-column: span 2;
+  background-color: #ffffffbf;
+}
