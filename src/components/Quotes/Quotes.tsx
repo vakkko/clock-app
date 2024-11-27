@@ -32,12 +32,9 @@ const Quotes = ({ isClicked }: QuoteProp) => {
         <div className="quote-container">
           <div>
             <p className="quote">"{quote}"</p>
-            <img
-              onClick={fetchQuote}
-              src="./assets/desktop/icon-refresh.svg"
-              alt="refresh icon"
-              className="refresh-icon"
-            />
+            <button className="refresh-icon" onClick={fetchQuote}>
+              <img src="./assets/desktop/icon-refresh.svg" alt="refresh icon" />
+            </button>
           </div>
           <p className="author">{author}</p>
         </div>

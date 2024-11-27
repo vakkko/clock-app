@@ -1,5 +1,22 @@
 main {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100vh;
+}
+
+.time-button {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 16rem;
+}
+
+body.click-more main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+body.click-more .time-button {
+  margin-top: 5rem;
 }

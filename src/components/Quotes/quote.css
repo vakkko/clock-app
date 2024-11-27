@@ -5,6 +5,11 @@
   color: white;
 }
 
+.quote-container {
+  width: 35%;
+  margin-left: 16rem;
+}
+
 .quote {
   font-weight: 400;
 }
@@ -20,6 +25,9 @@
 }
 
 .refresh-icon {
-  cursor: pointer;
   margin-top: 0.7rem;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
 }

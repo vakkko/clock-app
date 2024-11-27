@@ -28,12 +28,3 @@
   letter-spacing: 4.800000190734863px;
   color: white;
 }
-
-.greeting-time {
-  display: grid;
-  grid-row-start: 2;
-}
-
-body.click-more .greeting-time {
-  grid-row-start: 1;
-}
