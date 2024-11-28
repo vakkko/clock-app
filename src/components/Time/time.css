@@ -28,3 +28,36 @@
   letter-spacing: 4.800000190734863px;
   color: white;
 }
+
+@media screen and (max-width: 58.125rem) {
+  .time {
+    font-size: 17.5rem;
+    line-height: 17.5rem;
+    letter-spacing: -4.375px;
+  }
+
+  .time-zone {
+    font-size: 1.8rem;
+    line-height: 2.8rem;
+    letter-spacing: 3.5999999046325684px;
+  }
+}
+
+@media screen and (max-width: 41.75rem) {
+  .time {
+    font-size: 10rem;
+    line-height: 10rem;
+    letter-spacing: -2.5px;
+  }
+
+  .greeting-text,
+  .time-zone {
+    font-size: 1.5rem;
+    line-height: 2.5rem;
+    letter-spacing: 3px;
+  }
+
+  body.click-more .time-button {
+    margin-top: 9rem;
+  }
+}

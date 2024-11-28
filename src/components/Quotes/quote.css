@@ -31,3 +31,20 @@
   outline: none;
   cursor: pointer;
 }
+
+@media screen and (max-width: 58.125rem) {
+  .quote-container {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 41.75rem) {
+  .quote-container {
+    margin: 0 3rem;
+  }
+
+  .quote {
+    font-size: 1.2rem;
+    line-height: 2.2rem;
+  }
+}

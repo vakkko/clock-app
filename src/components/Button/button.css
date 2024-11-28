@@ -22,18 +22,10 @@
   transition: transform 0.2s linear;
 }
 
-.btn-more,
-.btn-less {
-  /* grid-row-start: 2;
-  align-self: flex-end;
-  justify-self: flex-end; */
-  align-self: flex-end;
-}
-
 .btn-less .arrow {
   transform: rotate(180deg);
 }
 
-body.click-more .btn-less {
-  /* grid-row-start: 1; */
+.arrow:hover {
+  background-color: #999999;
 }

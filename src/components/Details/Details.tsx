@@ -41,13 +41,6 @@ function dayOfYear(dateString: string): number {
   return dayOfYear;
 }
 
-try {
-  console.log(dayOfYear("2024-10-01"));
-  console.log(dayOfYear("2023-10-01"));
-} catch (error) {
-  console.error(error);
-}
-
 export default function Details({ currentTime }: DetailsProps) {
   const currentDay: number = currentTime?.date
     ? dayOfYear(currentTime.date)
@@ -69,7 +62,6 @@ export default function Details({ currentTime }: DetailsProps) {
             detail={currentDay.toString()}
           />
         </div>
-        <hr className="hrz" />
         <div>
           <EachDetails heading="DAY OF THE WEEK" detail={currentDayOfWeek} />
           <EachDetails heading="WEEK NUMBER" detail={currentWeek} />
