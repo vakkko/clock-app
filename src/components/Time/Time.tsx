@@ -1,13 +1,7 @@
 import { useState, useEffect } from "react";
 import "./time.css";
-
-interface TimeResponse {
-  time: string;
-  timeZone: string;
-  hour: string;
-  day: string;
-  date: string;
-}
+import { fetchCurrentTime, getGreeting } from "../../utils/timeUtils";
+import { TimeResponse } from "../../App";
 
 interface TimeProps {
   currentTime: TimeResponse | null;
@@ -26,47 +20,23 @@ function Time({ currentTime, setCurrentTime }: TimeProps) {
 
   useEffect(() => {
     const fetchTime = async () => {
-      try {
-        const response = await fetch(
-          "https://timeapi.io/api/time/current/zone?timeZone=Asia/Tbilisi"
-        );
-
-        if (!response.ok) {
-          throw new Error("Failed to fetch time");
-        }
-
-        const data: TimeResponse = await response.json();
+      const data = await fetchCurrentTime();
+      if (data) {
         setCurrentTime(data);
         setError(null);
         const hour = Number(data.hour);
-
-        if (hour > 5 && hour <= 12) {
-          setGreeting({
-            text: "GOOD MORNING, IT’S CURRENTLY",
-            icon: "./assets/desktop/icon-sun.svg",
-            alt: "sun icon",
-          });
-          setNightBackground(false);
-        } else if (hour > 12 && hour < 18) {
-          setGreeting({
-            text: "GOOD AFTEERNOON, IT’S CURRENTLY",
-            icon: "./assets/desktop/icon-sun.svg",
-            alt: "sun icon",
-          });
-          setNightBackground(false);
-        } else {
-          setGreeting({
-            text: "GOOD EVENING, IT’S CURRENTLY",
-            icon: "./assets/desktop/icon-moon.svg",
-            alt: "moon icon",
-          });
-          setNightBackground(true);
-        }
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "An error occurred");
-      } finally {
-        setLoading(false);
+        const greetingData = getGreeting(hour);
+        setGreeting({
+          text: greetingData.text,
+          icon: greetingData.icon,
+          alt: greetingData.alt,
+        });
+        setNightBackground(greetingData.nightBakcground ?? false);
+      } else {
+        setError("An error occurred while fetching time.");
       }
+
+      setLoading(false);
     };
 
     fetchTime();

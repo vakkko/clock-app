@@ -1,44 +1,10 @@
 import "./details.css";
-
-interface TimeResponse {
-  timeZone: string;
-  hour: string;
-  day: string;
-  date: string;
-}
+import { TimeResponse } from "../../App";
+import EachDetails from "./EachDetails/EachDetails";
+import { dayOfYear } from "../../utils/timeUtils";
 
 interface DetailsProps {
   currentTime: TimeResponse | null;
-}
-
-interface EachDetailsProps {
-  heading: string;
-  detail: string | undefined;
-}
-
-function EachDetails(props: EachDetailsProps) {
-  return (
-    <div className="each-detail">
-      <h2 className="">{props.heading}</h2>
-      <p>{props.detail}</p>
-    </div>
-  );
-}
-
-function dayOfYear(dateString: string): number {
-  const date = new Date(dateString);
-
-  if (isNaN(date.getTime())) {
-    throw new Error("Invalid date format. Please use a valid date string.");
-  }
-
-  const startOfYear = new Date(date.getFullYear(), 0, 0);
-
-  const diff = date.getTime() - startOfYear.getTime();
-  const oneDay = 1000 * 60 * 60 * 24;
-  const dayOfYear = Math.floor(diff / oneDay);
-
-  return dayOfYear;
 }
 
 export default function Details({ currentTime }: DetailsProps) {

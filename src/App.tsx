@@ -5,7 +5,7 @@ import Quotes from "./components/Quotes/Quotes";
 import Time from "./components/Time/Time";
 import Details from "./components/Details/Details";
 
-interface TimeResponse {
+export interface TimeResponse {
   time: string;
   timeZone: string;
   hour: string;
